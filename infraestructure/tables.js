@@ -1,8 +1,8 @@
-class Tabelas {
+class Tables {
     init(connection) {
         this.connection = connection
 
-        this.criarAtendimento()
+        this.createAttendance()
     }
 
     createAttendance() {
@@ -18,4 +18,4 @@ class Tabelas {
     }
 }
 
-module.exports = new Tabelas
+module.exports = new Tables
