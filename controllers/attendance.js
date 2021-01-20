@@ -1,4 +1,4 @@
-const Atendimento = require('../models/attendance')
+const Attendance = require('../models/attendance')
 
 
 module.exports = app => {
@@ -7,10 +7,8 @@ module.exports = app => {
     });
 
     app.post('/atendimentos', function(req, resp){
-        const atendimento = req.body
+        const attendance = req.body
 
-        Atendimento.adiciona(atendimento)
-        resp.send('You are on the service route and doing a POST method')
+        Attendance.add(attendance,resp)
     })
 }
-
