@@ -3,7 +3,7 @@ const moment = require('moment')
 const connection = require('../infraestructure/conection')
 
 class Attendance {
-    add(attendance) {
+    add(attendance,resp) {
         const dataCriacao = moment().format('YYYY-MM-DD HH:mm:ss')
         const data = moment(attendance.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
         const dateAttendance = {...attendance,dataCriacao, data}
@@ -12,9 +12,9 @@ class Attendance {
 
         connection.query(sql, dateAttendance, function(error, result) {
             if(error) {
-                console.log(error)
+                resp.status(400).json(error)
             }else{
-                console.log(result)
+                resp.status(201).json(result)
             }
         })
     }
